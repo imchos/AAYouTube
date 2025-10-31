@@ -32,7 +32,7 @@
       var player;
       function onYouTubeIframeAPIReady() {
 console.log("onYouTubeIframeAPIReady()");
-window.android.log("onYouTubeIframeAPIReady()");
+window.android.log?("onYouTubeIframeAPIReady()");
         player = new YT.Player('player', {
 //          height: '640',
 //          width: '360',
@@ -47,7 +47,7 @@ window.android.log("onYouTubeIframeAPIReady()");
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
 console.log("onPlayerReady()");
-window.android.log("onPlayerReady()");
+window.android.log?("onPlayerReady()");
         event.target.playVideo();
         // chos
         //iframe_video = document.getElementsByTagName("iframe")[0];
@@ -57,7 +57,7 @@ window.android.log("onPlayerReady()");
 
 /*
         new ResizeObserver((entries) => {
-            window.android.log("ResizeObserver video " + video.style.width + " x " + video.style.height + " top: " + video.style.top);
+            window.android.log?("ResizeObserver video " + video.style.width + " x " + video.style.height + " top: " + video.style.top);
             if(parseFloat(video.style.top) > 0) {
               video.style.top = 0;
             }
@@ -65,7 +65,7 @@ window.android.log("onPlayerReady()");
           .observe(video);
 */
         new MutationObserver((entries) => {
-            window.android.log("MutationObserver video " + video.style.width + " x " + video.style.height + " top: " + video.style.top);
+            window.android.log?("MutationObserver video " + video.style.width + " x " + video.style.height + " top: " + video.style.top);
             if(parseFloat(video.style.top) > 0) {
               video.style.top = 0;
             }
@@ -87,7 +87,7 @@ window.android.log("onPlayerReady()");
         }
         // chos
         //console.log("onStateChange " + event.data);
-        //window.android.log("onStateChange " + event.data);
+        //window.android.log?("onStateChange " + event.data);
         window.android.onStateChange(event.data, player.getCurrentTime(), player.getDuration());
       }
 //      function stopVideo() {
@@ -96,7 +96,7 @@ window.android.log("onPlayerReady()");
 
       // chos
       function onSizeChangeWebView(width, height) {
-        //window.android.log("onSizeChangeWebView " + width + " x " + height);
+        //window.android.log?("onSizeChangeWebView " + width + " x " + height);
       }
     </script>
   </body>
